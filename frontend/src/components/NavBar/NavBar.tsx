@@ -23,7 +23,7 @@ const NavBar: FC = (): ReactElement => {
         dispatch(logoutSuccess());
     };
 
-
+    const handleMenuItemClick: MenuProps['onClick'] = (e) => history.push(e.key);
 
     const items: MenuProps['items'] = useMemo(() => [
         {
@@ -73,10 +73,6 @@ const NavBar: FC = (): ReactElement => {
         ))
     ], [cartItemsCount, usersData?.id]);
 
-    const onClick: MenuProps['onClick'] = (e) => {
-        console.log('click ', e);
-        history.push(e.key);
-    };
 
     return (
         <>
@@ -86,12 +82,12 @@ const NavBar: FC = (): ReactElement => {
                         <Col xs={{ span: 24 }} sm={{ span: 4 }} className="navbar-logo">
                             <img alt={"navbar-logo"} src="https://i.ibb.co/fqYvrL8/LOGO4.jpg" />
                         </Col>
-                        <Col xs={{ span: 24 }} sm={{ span: 20 }}>
-                            <Menu onClick={onClick} selectedKeys={[location.pathname]} mode="horizontal" items={items} />
+                        <Col xs={{ span: 0 }} sm={{ span: 20 }}>
+                            <Menu onClick={handleMenuItemClick} selectedKeys={[location.pathname]} mode="horizontal" items={items} />
                         </Col>
                     </Row>
                 </div>
-            </Affix>
+            </Affix >
         </>
     );
 };
