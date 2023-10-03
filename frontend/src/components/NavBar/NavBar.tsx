@@ -1,8 +1,8 @@
-import React, { FC, ReactElement } from "react";
+import { FC, ReactElement, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { LoginOutlined, LogoutOutlined, ShoppingCartOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
-import { Affix, Badge, Col, Row, Space } from "antd";
+import { useHistory, useLocation } from "react-router-dom";
+import { Affix, Badge, Col, Menu, MenuProps, Row } from "antd";
 
 import { selectUserFromUserState } from "../../redux-toolkit/user/user-selector";
 import { selectCartItemsCount } from "../../redux-toolkit/cart/cart-selector";
@@ -13,6 +13,8 @@ import "./NavBar.scss";
 
 const NavBar: FC = (): ReactElement => {
     const dispatch = useDispatch();
+    const location = useLocation();
+    const history = useHistory();
     const usersData = useSelector(selectUserFromUserState);
     const cartItemsCount = useSelector(selectCartItemsCount);
 
@@ -21,70 +23,71 @@ const NavBar: FC = (): ReactElement => {
         dispatch(logoutSuccess());
     };
 
+
+
+    const items: MenuProps['items'] = useMemo(() => [
+        {
+            label: 'Home',
+            key: BASE
+        },
+        {
+            label: 'Products',
+            key: MENU,
+        },
+        {
+            label: "CONTACTS",
+            key: CONTACTS,
+        },
+        {
+            label: (
+                <Badge count={cartItemsCount} size="small" color={"green"}>
+                    <ShoppingCartOutlined />
+                </Badge>
+            ),
+            className: "navbar-cart",
+            key: CART,
+        },
+        ...(usersData ? (
+            [{
+                label: "MY ACCOUNT",
+                key: ACCOUNT,
+                icon: <UserOutlined />
+            },
+            {
+                label: "EXIT",
+                key: BASE,
+                icon: <LogoutOutlined />,
+                onClick: handleLogout,
+            }]
+        ) : (
+            [{
+                label: "SIGN IN",
+                key: LOGIN,
+                icon: <LoginOutlined />
+            },
+            {
+                label: "SIGN UP",
+                key: REGISTRATION,
+                icon: <UserAddOutlined />,
+            }]
+        ))
+    ], [cartItemsCount, usersData?.id]);
+
+    const onClick: MenuProps['onClick'] = (e) => {
+        console.log('click ', e);
+        history.push(e.key);
+    };
+
     return (
         <>
-            <div className={"navbar-logo-wrapper"}>
-                <img alt={"navbar-logo"} src="https://i.ibb.co/fqYvrL8/LOGO4.jpg" />
-            </div>
             <Affix>
                 <div className={"navbar-wrapper"}>
-                    <Row style={{ padding: "0px 400px" }}>
-                        <Col span={12}>
-                            <ul>
-                                <Link to={BASE}>
-                                    <li>HOME</li>
-                                </Link>
-                                <li>
-                                    <Link to={{ pathname: MENU, state: { id: "all" } }}>PERFUMES</Link>
-                                </li>
-                                <Link to={CONTACTS}>
-                                    <li>CONTACTS</li>
-                                </Link>
-                            </ul>
+                    <Row justify={"space-between"}>
+                        <Col xs={{ span: 24 }} sm={{ span: 4 }} className="navbar-logo">
+                            <img alt={"navbar-logo"} src="https://i.ibb.co/fqYvrL8/LOGO4.jpg" />
                         </Col>
-                        <Col span={12}>
-                            <ul>
-                                <li className={"navbar-cart"}>
-                                    <Badge count={cartItemsCount} size="small" color={"green"}>
-                                        <Link to={CART}>
-                                            <ShoppingCartOutlined />
-                                        </Link>
-                                    </Badge>
-                                </li>
-                                {usersData ? (
-                                    <>
-                                        <Link to={ACCOUNT}>
-                                            <li>
-                                                <UserOutlined />
-                                                MY ACCOUNT
-                                            </li>
-                                        </Link>
-                                        <Link id={"handleLogout"} to={BASE} onClick={handleLogout}>
-                                            <li>
-                                                <LogoutOutlined />
-                                                EXIT
-                                            </li>
-                                        </Link>
-                                    </>
-                                ) : (
-                                    <>
-                                        <Link to={LOGIN}>
-                                            <li>
-                                                <Space align={"baseline"}>
-                                                    <LoginOutlined />
-                                                    SIGN IN
-                                                </Space>
-                                            </li>
-                                        </Link>
-                                        <Link to={REGISTRATION}>
-                                            <li>
-                                                <UserAddOutlined />
-                                                SIGN UP
-                                            </li>
-                                        </Link>
-                                    </>
-                                )}
-                            </ul>
+                        <Col xs={{ span: 24 }} sm={{ span: 20 }}>
+                            <Menu onClick={onClick} selectedKeys={[location.pathname]} mode="horizontal" items={items} />
                         </Col>
                     </Row>
                 </div>

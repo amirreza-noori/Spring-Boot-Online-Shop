@@ -1,7 +1,19 @@
+:root {
+    --primary: #22668D;
+    --secondary: #8ECDDD;
+    --light: #FFCC70;
+    --body: #FFFADD;
+}
+
 .ant-alert {
     margin-bottom: 16px;
 }
 
 .ant-rate {
     font-size: 12px !important;
+}
+
+.ant-menu-horizontal {
+    background-color: var(--light);
+    border-bottom-color: transparent;
 }

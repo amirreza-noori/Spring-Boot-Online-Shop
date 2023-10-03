@@ -40,7 +40,7 @@ const Menu: FC = (): ReactElement => {
     const { searchValue, searchTypeValue, resetFields, form, onSearch, handleChangeSelect } = useSearch();
 
     useEffect(() => {
-        const perfumeData = location.state.id;
+        const perfumeData = location.state?.id ?? 'all';
 
         if (perfumeData === "female" || perfumeData === "male") {
             dispatch(
