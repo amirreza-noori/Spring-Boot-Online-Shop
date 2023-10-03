@@ -1,9 +1,8 @@
-import React from "react";
 import axios, { Method } from "axios";
 
 import { API_BASE_URL } from "../constants/urlConstants";
 
-class RequestService {
+class RequestServiceClass {
     get = (url: string, isAuthRequired: boolean = false, contentType: string = "application/json") => {
         return createRequest("GET", url, null, isAuthRequired, contentType);
     };
@@ -39,4 +38,5 @@ const setHeader = (isAuthRequired: boolean, contentType: string) => {
     axios.defaults.headers.common["Content-Type"] = contentType;
 };
 
-export default new RequestService();
+const RequestService = new RequestServiceClass();
+export default RequestService;

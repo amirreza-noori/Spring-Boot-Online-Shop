@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useEffect, useState } from "react";
+import { FC, ReactElement, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Col, Form, Row } from "antd";
 import { CheckOutlined, EditOutlined, EyeInvisibleOutlined, ProfileOutlined } from "@ant-design/icons";
@@ -11,7 +11,7 @@ import IconButton from "../../../components/IconButton/IconButton";
 import { updateUserInfo } from "../../../redux-toolkit/user/user-thunks";
 import { resetInputForm } from "../../../redux-toolkit/user/user-slice";
 
-interface PersonalData {
+interface TPersonalData {
     firstName: string;
     lastName: string;
     city: string;
@@ -40,7 +40,7 @@ const PersonalData: FC = (): ReactElement => {
         }
     }, []);
 
-    const onFormSubmit = (data: PersonalData): void => {
+    const onFormSubmit = (data: TPersonalData): void => {
         dispatch(updateUserInfo({ id: usersData?.id, ...data }));
     };
 

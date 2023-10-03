@@ -19,10 +19,10 @@ const Footer: FC = (): ReactElement => {
                         <a href="https://www.linkedin.com/in/merikbest/">
                             <LinkedinOutlined />
                         </a>
-                        <a href="#">
+                        <a href="#facebook">
                             <FacebookOutlined />
                         </a>
-                        <a href="#">
+                        <a href="#twitter">
                             <TwitterOutlined />
                         </a>
                     </div>
