@@ -18,7 +18,19 @@
     height: auto;
 }
 
+.ant-layout-footer {
+    padding: 0;
+    height: auto;
+}
+
 .ant-menu-horizontal {
     background-color: var(--light);
     border-bottom-color: transparent;
+}
+
+
+.site-main-content {
+    background-color: var(--body);
+    width: 100%;
+    padding: 10px max(10px, 3%);
 }

@@ -18,7 +18,7 @@ import Spinner from "../../components/Spinner/Spinner";
 import { MAX_PAGE_VALUE, usePagination } from "../../hooks/usePagination";
 import { gender, perfumer, price } from "./MenuData";
 import { useSearch } from "../../hooks/useSearch";
-import "./Menu.css";
+import "./Menu.scss";
 
 export enum CheckboxCategoryFilter {
     PERFUMERS = "PERFUMERS",
@@ -121,7 +121,7 @@ const Menu: FC = (): ReactElement => {
 
     return (
         <Layout>
-            <Layout.Content className={"login-content"}>
+            <Layout.Content className={"menu-content"}>
                 <Typography.Title level={2}>Perfumes</Typography.Title>
                 <Row gutter={32}>
                     <Col span={6}>

@@ -60,7 +60,7 @@ const App: FC = (): ReactElement => {
 
                 <Layout>
                     <Layout.Header><NavBar /></Layout.Header>
-                    <Layout.Content>
+                    <Layout.Content className="site-main-content">
                         <Switch>
                             <Route exact path={BASE} component={Home} />
                             <Route exact path={LOGIN} component={Login} />
