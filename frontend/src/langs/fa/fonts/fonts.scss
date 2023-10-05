@@ -1,0 +1,39 @@
+@mixin AddIRANSansFont ($font-filename) {
+    font-family: 'IRANSans';
+    src: url($font-filename + '.eot');
+    src: url($font-filename + '.eot?#iefix') format($font-filename + '-opentype'),
+        url($font-filename + '.woff2') format('woff2'),
+        url($font-filename + '.woff') format('woff'),
+        url($font-filename + '.ttf') format('truetype');
+
+}
+
+@font-face {
+    @include AddIRANSansFont('./IRANSansWeb(FaNum)_UltraLight');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    @include AddIRANSansFont('./IRANSansWeb(FaNum)_Light');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    @include AddIRANSansFont('./IRANSansWeb(FaNum)');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    @include AddIRANSansFont('./IRANSansWeb(FaNum)_Medium');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    @include AddIRANSansFont('./IRANSansWeb(FaNum)_Bold');
+    font-weight: 700;
+    font-style: normal;
+}

@@ -1,8 +1,9 @@
 :root {
-    --primary: #22668D;
-    --secondary: #8ECDDD;
-    --light: #FFCC70;
-    --body: #FFFADD;
+    --primary-color: #F7C35F;
+    --secondary-color: #F7C35F;
+    --light-color: #334B35;
+    --body-color: #334B35;
+    --text-color: #FFF;
 }
 
 .ant-alert {

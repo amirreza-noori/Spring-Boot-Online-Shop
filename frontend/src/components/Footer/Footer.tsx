@@ -3,13 +3,15 @@ import { FacebookOutlined, LinkedinOutlined, TwitterOutlined } from "@ant-design
 import { Col, Row, Typography } from "antd";
 
 import "./Footer.scss";
+import { useTranslation } from "react-i18next";
 
 const Footer: FC = (): ReactElement => {
+    const { t } = useTranslation();
     return (
         <div className={"footer-wrapper"}>
             <Row >
                 <Col span={12}>
-                    <Typography.Title level={3}>Perfume</Typography.Title>
+                    <Typography.Title level={3}>{t('site-title')}</Typography.Title>
                     <Typography.Text>(066) 696-66-23</Typography.Text>
                     <Typography.Text className={"mt-12"}>from 08:00 to 20:00 without breaks and weekends</Typography.Text>
                 </Col>

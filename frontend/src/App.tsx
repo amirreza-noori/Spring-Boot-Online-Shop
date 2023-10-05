@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import "antd/dist/antd.css";
 import { BackTop, ConfigProvider, Layout } from "antd";
+import './langs/i18n';
 
 import {
     ACCOUNT,
@@ -39,9 +40,11 @@ import MobileBottomNavBar from "./components/MobileBottomNavBar/MobileBottomNavB
 import Footer from "./components/Footer/Footer";
 import OAuth2RedirectHandler from "./utils/oauth2/OAuth2RedirectHandler";
 import "./App.css";
+import { useTranslation } from "react-i18next";
 
 const App: FC = (): ReactElement => {
     const dispatch = useDispatch();
+    const { t } = useTranslation()
 
     useEffect(() => {
         const perfumesFromLocalStorage: Map<number, number> = new Map(
@@ -56,8 +59,12 @@ const App: FC = (): ReactElement => {
 
     return (
         <>
-            <ConfigProvider direction="rtl">
-
+            <style>
+                {`html, body, body * {
+                    font-family: ${t('config:font')};
+                }`}
+            </style>
+            <ConfigProvider direction={t('config:direction') === "rtl" ? "rtl" : "ltr"}>
                 <Layout>
                     <Layout.Header><NavBar /></Layout.Header>
                     <Layout.Content className="site-main-content">
