@@ -12,12 +12,14 @@ const Footer: FC = (): ReactElement => {
             <Row >
                 <Col xs={{ span: 24 }} sm={{ span: 12 }}>
                     <Typography.Title level={3}>{t('site-title')}</Typography.Title>
-                    <Typography.Text>(066) 696-66-23</Typography.Text>
-                    <Typography.Text className={"mt-12"}>from 08:00 to 20:00 without breaks and weekends</Typography.Text>
+                    <Typography.Text>{t('tel', { tel: '0293432' })}</Typography.Text>
+                    <Typography.Text className={"mt-12"}>
+                        ساعت کاری ما شنبه تا چهارشنبه 7 صبح الی 7 شب است.
+                    </Typography.Text>
                 </Col>
                 <Col xs={{ span: 24 }} sm={{ span: 12 }}>
                     <div className={"footer-wrapper-social"}>
-                        <Typography.Title level={3}>Social networks</Typography.Title>
+                        <Typography.Title level={3}>{t('socialMedia')}</Typography.Title>
                         <a href="https://www.linkedin.com/in/merikbest/">
                             <LinkedinOutlined />
                         </a>
@@ -31,7 +33,7 @@ const Footer: FC = (): ReactElement => {
                 </Col>
             </Row>
             <Row className={"footer-wrapper-copyright"}>
-                <Typography.Text>© Copy right merikbest</Typography.Text>
+                <Typography.Text>{t('footerCopyright')}</Typography.Text>
             </Row>
         </div>
     );
