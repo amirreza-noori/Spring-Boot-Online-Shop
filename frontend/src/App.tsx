@@ -39,7 +39,7 @@ import NavBar from "./components/NavBar/NavBar";
 import MobileBottomNavBar from "./components/MobileBottomNavBar/MobileBottomNavBar";
 import Footer from "./components/Footer/Footer";
 import OAuth2RedirectHandler from "./utils/oauth2/OAuth2RedirectHandler";
-import "./App.css";
+import "./App.scss";
 import { useTranslation } from "react-i18next";
 
 const App: FC = (): ReactElement => {

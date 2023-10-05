@@ -1,0 +1,61 @@
+:root {
+    --primary-color: #F7C35F;
+    --secondary-color: #6D8C54;
+    --light-color: #334B35;
+    --body-color: #6D8C54;
+    --text-color: #FFF;
+
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+    background: var(--body-color);
+    border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background: var(--body-color);
+}
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    opacity: 0.6;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    opacity: 1;
+}
+
+.ant-alert {
+    margin-bottom: 16px;
+}
+
+.ant-rate {
+    font-size: 12px !important;
+}
+
+.ant-layout-header {
+    padding: 0;
+    height: auto;
+}
+
+.ant-layout-footer {
+    padding: 0;
+    height: auto;
+}
+
+.ant-menu-horizontal {
+    background-color: var(--light-color);
+    border-bottom-color: transparent;
+}
+
+.ant-spin-dot-item {
+    background-color: #F7C35F;
+}
