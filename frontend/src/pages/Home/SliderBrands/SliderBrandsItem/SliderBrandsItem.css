@@ -1,5 +1,7 @@
 .slider-brand-item {
     position: relative;
+    justify-content: center;
+    display: flex;
 }
 
 .slider-brand-item-link {

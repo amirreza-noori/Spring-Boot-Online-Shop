@@ -1,0 +1,28 @@
+.brands-wrapper {
+    min-height: auto;
+    padding-bottom: 40px;
+
+    .brands-carousel {
+        margin: 0 5%;
+
+        .slick-dots-bottom {
+            bottom: -20px;
+        }
+
+    }
+
+    .brands-wrapper-title {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .brands-wrapper .ant-carousel .slick-dots li button {
+        background: #000000;
+        opacity: 0.4;
+    }
+
+    .brands-wrapper .ant-carousel .slick-dots li.slick-active button {
+        opacity: 1;
+        background: #000000;
+    }
+}
