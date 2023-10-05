@@ -10,7 +10,7 @@ type PropsType = {
 const ContentWrapper: FC<PropsType> = ({ children }): ReactElement => {
     return (
         <Layout>
-            <Layout.Content className={"login-content"}>{children}</Layout.Content>
+            <Layout.Content className={"content-wrapper"}>{children}</Layout.Content>
         </Layout>
     );
 };

@@ -1,9 +1,10 @@
 :root {
     --primary-color: #F7C35F;
-    --secondary-color: #F7C35F;
+    --secondary-color: #6D8C54;
     --light-color: #334B35;
-    --body-color: #334B35;
+    --body-color: #6D8C54;
     --text-color: #FFF;
+
 }
 
 .ant-alert {
@@ -25,13 +26,6 @@
 }
 
 .ant-menu-horizontal {
-    background-color: var(--light);
+    background-color: var(--light-color);
     border-bottom-color: transparent;
-}
-
-
-.site-main-content {
-    background-color: var(--body);
-    width: 100%;
-    padding: 10px max(10px, 3%);
 }

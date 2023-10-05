@@ -67,7 +67,7 @@ const App: FC = (): ReactElement => {
             <ConfigProvider direction={t('config:direction') === "rtl" ? "rtl" : "ltr"}>
                 <Layout>
                     <Layout.Header><NavBar /></Layout.Header>
-                    <Layout.Content className="site-main-content">
+                    <Layout.Content>
                         <Switch>
                             <Route exact path={BASE} component={Home} />
                             <Route exact path={LOGIN} component={Login} />

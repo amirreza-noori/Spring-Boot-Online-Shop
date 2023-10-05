@@ -3,7 +3,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: var(--light);
+  background-color: var(--light-color);
 
   .ant-menu-horizontal {
     justify-content: space-between;
@@ -13,5 +13,21 @@
   .ant-menu-rtl .ant-menu-item .anticon {
     margin: 0;
     font-size: 24px;
+  }
+
+
+  .ant-menu,
+  .ant-menu * {
+    color: var(--text-color);
+
+    .ant-menu-item-selected,
+    .ant-menu-item-selected * {
+      font-weight: 700;
+      color: var(--primary-color);
+
+      &::after {
+        border-bottom-color: var(--primary-color);
+      }
+    }
   }
 }

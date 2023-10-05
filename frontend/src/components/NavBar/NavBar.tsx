@@ -10,10 +10,12 @@ import { logoutSuccess } from "../../redux-toolkit/user/user-slice";
 import { ACCOUNT, BASE, CONTACTS, LOGIN, MENU, REGISTRATION } from "../../constants/routeConstants";
 import { CART } from "../../constants/urlConstants";
 import "./NavBar.scss";
+import { useTranslation } from "react-i18next";
 
 const NavBar: FC = (): ReactElement => {
     const dispatch = useDispatch();
     const location = useLocation();
+    const { t } = useTranslation();
     const history = useHistory();
     const usersData = useSelector(selectUserFromUserState);
     const cartItemsCount = useSelector(selectCartItemsCount);
@@ -27,15 +29,15 @@ const NavBar: FC = (): ReactElement => {
 
     const items: MenuProps['items'] = useMemo(() => [
         {
-            label: 'Home',
+            label: t('home'),
             key: BASE
         },
         {
-            label: 'Products',
+            label: t('products'),
             key: MENU,
         },
         {
-            label: "CONTACTS",
+            label: t('contacts'),
             key: CONTACTS,
         },
         {
@@ -49,24 +51,24 @@ const NavBar: FC = (): ReactElement => {
         },
         ...(usersData ? (
             [{
-                label: "MY ACCOUNT",
+                label: t("account"),
                 key: ACCOUNT,
                 icon: <UserOutlined />
             },
             {
-                label: "EXIT",
+                label: t("exit"),
                 key: BASE,
                 icon: <LogoutOutlined />,
                 onClick: handleLogout,
             }]
         ) : (
             [{
-                label: "SIGN IN",
+                label: t("signIn"),
                 key: LOGIN,
                 icon: <LoginOutlined />
             },
             {
-                label: "SIGN UP",
+                label: t("signUp"),
                 key: REGISTRATION,
                 icon: <UserAddOutlined />,
             }]
@@ -80,7 +82,7 @@ const NavBar: FC = (): ReactElement => {
                 <div className={"navbar-wrapper"}>
                     <Row justify={"space-between"}>
                         <Col xs={{ span: 24 }} sm={{ span: 4 }} className="navbar-logo">
-                            <img alt={"navbar-logo"} src="https://i.ibb.co/fqYvrL8/LOGO4.jpg" />
+                            <img alt={"navbar-logo"} src="/assets/logo.svg" />
                         </Col>
                         <Col xs={{ span: 0 }} sm={{ span: 20 }}>
                             <Menu onClick={handleMenuItemClick} selectedKeys={[location.pathname]} mode="horizontal" items={items} />

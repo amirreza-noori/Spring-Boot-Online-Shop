@@ -1,3 +1,10 @@
 {
-    "site-title": "شرکت کنجد"
+    "site-title": "شرکت کنجد",
+    "home": "خانه",
+    "contacts": "ارتباط با ما",
+    "products": "محصولات",
+    "account": "حساب کاربری",
+    "exit": "خروج",
+    "signIn": "ورود",
+    "signUp": "عضویت"
 }
