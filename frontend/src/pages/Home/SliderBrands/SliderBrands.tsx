@@ -6,8 +6,6 @@ import SliderBrandsItem from "./SliderBrandsItem/SliderBrandsItem";
 import "./SliderBrands.scss";
 import { useTranslation } from "react-i18next";
 import ContentWrapper from "../../../components/ContentWrapper/ContentWrapper";
-import { Link } from "react-router-dom";
-import { MENU } from "../../../constants/routeConstants";
 import SliderBrandItem from "./SliderBrandsItem/SliderBrandItem";
 
 const { useBreakpoint } = Grid;
