@@ -12,7 +12,7 @@ i18n
         resources,
         lng: "fa",
         fallbackNS: "global",
-        debug: process.env.NODE_ENV !== 'production',
+        // debug: process.env.NODE_ENV !== 'production',
         interpolation: {
             escapeValue: false // react already safes from xss
         }

@@ -48,8 +48,6 @@ const MobileBottomNavBar: FC = (): ReactElement => {
             label: <LoginOutlined />
         }))
     ], [cartItemsCount, usersData?.id]);
-    console.log(items);
-
 
     return (
         <>

@@ -78,8 +78,8 @@ const NavBar: FC = (): ReactElement => {
 
     return (
         <>
-            <Affix>
-                <div className={"navbar-wrapper"}>
+            <Affix className={"navbar-wrapper"}>
+                <div>
                     <Row justify={"space-between"}>
                         <Col xs={{ span: 24 }} sm={{ span: 4 }} className="navbar-logo">
                             <img alt={"navbar-logo"} src="/assets/logo.svg" />

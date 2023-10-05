@@ -1,5 +1,12 @@
 .carousel-item-wrapper {
     position: relative;
+
+    img {
+        height: 250px;
+        height: max(30vw, 250px);
+        width: 100%;
+        object-fit: cover;
+    }
 }
 
 .carousel-link {

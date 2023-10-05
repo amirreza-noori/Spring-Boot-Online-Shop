@@ -1,6 +1,11 @@
 .navbar-wrapper {
-  padding: 0 5%;
-  background-color: var(--light-color);
+
+  &>div {
+    position: relative;
+    padding: 0 5%;
+    background-color: var(--light-color);
+    z-index: 99999999;
+  }
 
   .ant-menu,
   .ant-menu * {
