@@ -1,7 +1,7 @@
-import React, {FC, ReactElement, ReactNode} from "react";
+import React, { FC, ReactElement, ReactNode } from "react";
 import { Space, Typography } from "antd";
 
-import "./ContentTitle.css";
+import "./ContentTitle.scss";
 
 type PropsType = {
     icon?: ReactNode;
@@ -11,10 +11,12 @@ type PropsType = {
 
 const ContentTitle: FC<PropsType> = ({ icon, title, titleLevel }): ReactElement => {
     return (
-        <Space align="center" className={"title-icon"}>
-            {icon}
-            <Typography.Title level={titleLevel}>{title}</Typography.Title>
-        </Space>
+        <div className={'content-title'}>
+            <Space align="center" className={"title-icon"}>
+                {icon}
+                <Typography.Title level={titleLevel}>{title}</Typography.Title>
+            </Space>
+        </div>
     );
 };
 

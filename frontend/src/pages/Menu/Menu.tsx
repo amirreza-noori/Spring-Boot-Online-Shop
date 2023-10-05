@@ -1,6 +1,6 @@
 import React, { FC, ReactElement, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Col, Layout, Pagination, RadioChangeEvent, Row, Typography } from "antd";
+import { Col, Pagination, RadioChangeEvent, Row, Typography } from "antd";
 import { CheckboxValueType } from "antd/lib/checkbox/Group";
 import { useLocation } from "react-router-dom";
 
@@ -19,6 +19,9 @@ import { MAX_PAGE_VALUE, usePagination } from "../../hooks/usePagination";
 import { gender, perfumer, price } from "./MenuData";
 import { useSearch } from "../../hooks/useSearch";
 import "./Menu.scss";
+import { useTranslation } from "react-i18next";
+import ContentWrapper from "../../components/ContentWrapper/ContentWrapper";
+import ContentTitle from "../../components/ContentTitle/ContentTitle";
 
 export enum CheckboxCategoryFilter {
     PERFUMERS = "PERFUMERS",
@@ -26,6 +29,7 @@ export enum CheckboxCategoryFilter {
 }
 
 const Menu: FC = (): ReactElement => {
+    const { t } = useTranslation();
     const dispatch = useDispatch();
     const perfumes = useSelector(selectPerfumes);
     const isPerfumesLoading = useSelector(selectIsPerfumesLoading);
@@ -120,60 +124,38 @@ const Menu: FC = (): ReactElement => {
     };
 
     return (
-        <Layout>
-            <Layout.Content className={"menu-content"}>
-                <Typography.Title level={2}>Perfumes</Typography.Title>
-                <Row gutter={32}>
-                    <Col span={6}>
-                        <MenuCheckboxSection
-                            title={"Brand"}
-                            onChange={onChangeCheckbox}
-                            data={perfumer}
-                            category={CheckboxCategoryFilter.PERFUMERS}
-                            selectedValues={filterParams.perfumers}
-                        />
-                        <MenuCheckboxSection
-                            title={"Gender"}
-                            onChange={onChangeCheckbox}
-                            data={gender}
-                            category={CheckboxCategoryFilter.GENDERS}
-                            selectedValues={filterParams.genders}
-                        />
-                        <MenuRadioSection title={"Price"} onChange={onChangeRadio} data={price} />
-                    </Col>
-                    <Col span={18}>
-                        <Row>
-                            <Col span={9}>
-                                <SelectSearchData handleChangeSelect={handleChangeSelect} />
-                            </Col>
-                            <Col span={10}>
-                                <InputSearch onSearch={onSearch} form={form} />
-                            </Col>
-                        </Row>
-                        <Row style={{ marginTop: 16, marginBottom: 16 }}>
-                            <Col span={16}>
-                                <Pagination
-                                    current={currentPage}
-                                    pageSize={MAX_PAGE_VALUE}
-                                    total={totalElements}
-                                    showSizeChanger={false}
-                                    onChange={changePagination}
-                                />
-                            </Col>
-                            <Col span={8}>
-                                <MenuSorter onChange={handleChangeSortPrice} sortByPrice={sortByPrice} />
-                            </Col>
-                        </Row>
-                        <Row gutter={[32, 32]}>
-                            {isPerfumesLoading ? (
-                                <Spinner />
-                            ) : (
-                                perfumes.map((perfume) => (
-                                    <PerfumeCard key={perfume.id} perfume={perfume} colSpan={8} />
-                                ))
-                            )}
-                        </Row>
-                        <Row style={{ marginTop: 16, marginBottom: 16 }}>
+        <ContentWrapper className={"menu-content"}>
+            <ContentTitle title={t("products")} />
+
+            <Row gutter={32}>
+                <Col span={6}>
+                    <MenuCheckboxSection
+                        title={t("brands")}
+                        onChange={onChangeCheckbox}
+                        data={perfumer}
+                        category={CheckboxCategoryFilter.PERFUMERS}
+                        selectedValues={filterParams.perfumers}
+                    />
+                    <MenuCheckboxSection
+                        title={t("gender")}
+                        onChange={onChangeCheckbox}
+                        data={gender}
+                        category={CheckboxCategoryFilter.GENDERS}
+                        selectedValues={filterParams.genders}
+                    />
+                    <MenuRadioSection title={t("price")} onChange={onChangeRadio} data={price} />
+                </Col>
+                <Col span={18}>
+                    <Row>
+                        <Col span={9}>
+                            <SelectSearchData handleChangeSelect={handleChangeSelect} />
+                        </Col>
+                        <Col span={10}>
+                            <InputSearch onSearch={onSearch} form={form} />
+                        </Col>
+                    </Row>
+                    <Row style={{ marginTop: 16, marginBottom: 16 }}>
+                        <Col span={16}>
                             <Pagination
                                 current={currentPage}
                                 pageSize={MAX_PAGE_VALUE}
@@ -181,11 +163,32 @@ const Menu: FC = (): ReactElement => {
                                 showSizeChanger={false}
                                 onChange={changePagination}
                             />
-                        </Row>
-                    </Col>
-                </Row>
-            </Layout.Content>
-        </Layout>
+                        </Col>
+                        <Col span={8}>
+                            <MenuSorter onChange={handleChangeSortPrice} sortByPrice={sortByPrice} />
+                        </Col>
+                    </Row>
+                    <Row gutter={[32, 32]}>
+                        {isPerfumesLoading ? (
+                            <Spinner />
+                        ) : (
+                            perfumes.map((perfume) => (
+                                <PerfumeCard key={perfume.id} perfume={perfume} colSpan={8} />
+                            ))
+                        )}
+                    </Row>
+                    <Row style={{ marginTop: 16, marginBottom: 16 }}>
+                        <Pagination
+                            current={currentPage}
+                            pageSize={MAX_PAGE_VALUE}
+                            total={totalElements}
+                            showSizeChanger={false}
+                            onChange={changePagination}
+                        />
+                    </Row>
+                </Col>
+            </Row>
+        </ContentWrapper>
     );
 };
 
