@@ -12,10 +12,8 @@ const Footer: FC = (): ReactElement => {
             <Row >
                 <Col xs={{ span: 24 }} sm={{ span: 12 }}>
                     <Typography.Title level={3}>{t('site-title')}</Typography.Title>
-                    <Typography.Text>{t('tel', { tel: '0293432' })}</Typography.Text>
-                    <Typography.Text className={"mt-12"}>
-                        ساعت کاری ما شنبه تا چهارشنبه 7 صبح الی 7 شب است.
-                    </Typography.Text>
+                    <Typography.Text>{t('telX', { tel: '0293432' })}</Typography.Text>
+                    <Typography.Text className={"mt-12"}>{t('workingTimeInfo')}</Typography.Text>
                 </Col>
                 <Col xs={{ span: 24 }} sm={{ span: 12 }}>
                     <div className={"footer-wrapper-social"}>

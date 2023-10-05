@@ -1,43 +1,41 @@
-import React, {FC, ReactElement, useEffect} from "react";
+import React, { FC, ReactElement, useEffect } from "react";
 import { Col, Row, Typography } from "antd";
 import { InfoCircleOutlined } from "@ant-design/icons";
 
 import ContentWrapper from "../../components/ContentWrapper/ContentWrapper";
 import ContentTitle from "../../components/ContentTitle/ContentTitle";
+import { useTranslation } from "react-i18next";
 
 const Contacts: FC = (): ReactElement => {
-
+    const { t } = useTranslation();
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-    
+
     return (
         <ContentWrapper>
-            <ContentTitle icon={<InfoCircleOutlined />} title={"Contacts"} />
+            <ContentTitle icon={<InfoCircleOutlined />} title={t("contacts")} />
             <Row gutter={32}>
-                <Col span={12}>
+                <Col span={24}>
                     <div>
-                        <Typography.Text strong>{"Mobile: "}</Typography.Text>
-                        <Typography.Text>(066) 696-66-23</Typography.Text>
+                        <Typography.Text strong>{t("tel")} :</Typography.Text>
+                        <Typography.Text>021122323</Typography.Text>
                     </div>
                     <div>
-                        <Typography.Text strong>{"E-mail: "}</Typography.Text>
-                        <Typography.Text>merikbest2015@gmail.com</Typography.Text>
+                        <Typography.Text strong>{t("email")} :</Typography.Text>
+                        <Typography.Text>behtarin@gmail.com</Typography.Text>
                     </div>
                     <div style={{ marginTop: 16 }}>
-                        <Typography.Text strong>Working time</Typography.Text>
+                        <Typography.Text strong>{t("workingTime")}</Typography.Text>
                     </div>
                     <div>
-                        <Typography.Text>
-                            The online store is open from 08:00 to 20:00 without breaks and weekends. <br />
-                            Online orders are accepted around the clock.
-                        </Typography.Text>
+                        <Typography.Text>{t("workingTimeInfo")}</Typography.Text>
                     </div>
                     <div style={{ marginTop: 16 }}>
-                        <Typography.Text strong>Delivery</Typography.Text>
+                        <Typography.Text strong>{t('delivery')}</Typography.Text>
                     </div>
                     <div>
-                        <Typography.Text>Delivery of orders come through courier service.</Typography.Text>
+                        <Typography.Text>{t('deliveryInfo')}</Typography.Text>
                     </div>
                 </Col>
             </Row>
