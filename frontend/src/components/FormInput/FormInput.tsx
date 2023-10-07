@@ -2,7 +2,7 @@ import React, { FC, ReactElement, ReactNode } from "react";
 import { Col, Form, Input, Row, Typography } from "antd";
 import { Rule } from "antd/lib/form";
 
-import "./FormInput.css";
+import "./FormInput.scss";
 
 type PropsType = {
     title: string;
@@ -31,9 +31,9 @@ const FormInput: FC<PropsType> = ({
 }): ReactElement => {
     return (
         <Row className={"form-item"}>
-            <Col span={titleSpan}>
-                <Typography.Text>{title}</Typography.Text>
+            <Col span={titleSpan} className={"form-item-label"}>
                 {icon}
+                <Typography.Text>{title}</Typography.Text>
             </Col>
             <Col span={wrapperSpan}>
                 <Form.Item name={name} help={error} validateStatus={error && "error"} rules={rule}>

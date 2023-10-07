@@ -1,6 +1,6 @@
 import React, { FC, ReactElement, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Col, Pagination, RadioChangeEvent, Row, Typography } from "antd";
+import { Col, Pagination, RadioChangeEvent, Row } from "antd";
 import { CheckboxValueType } from "antd/lib/checkbox/Group";
 import { useLocation } from "react-router-dom";
 

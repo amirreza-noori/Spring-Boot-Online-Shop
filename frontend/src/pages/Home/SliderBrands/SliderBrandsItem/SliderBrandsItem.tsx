@@ -1,8 +1,5 @@
-import { Col, Row } from "antd";
+import { Row } from "antd";
 import React, { FC, ReactElement } from "react";
-import { Link } from "react-router-dom";
-
-import { MENU } from "../../../../constants/routeConstants";
 import "./SliderBrandsItem.css";
 import SliderBrandItem from "./SliderBrandItem";
 

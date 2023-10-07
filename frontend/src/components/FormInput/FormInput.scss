@@ -1,5 +1,10 @@
 .form-item {
     align-items: baseline;
+
+    & .form-item-label {
+        display: flex;
+        gap: 5px;
+    }
 }
 
 .form-item .anticon {

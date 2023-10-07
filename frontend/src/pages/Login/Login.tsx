@@ -18,8 +18,10 @@ import ContentTitle from "../../components/ContentTitle/ContentTitle";
 import FormInput from "../../components/FormInput/FormInput";
 import IconButton from "../../components/IconButton/IconButton";
 import "./Login.css";
+import { useTranslation } from "react-i18next";
 
 const Login: FC = (): ReactElement => {
+    const { t } = useTranslation();
     const dispatch = useDispatch();
     const history = useHistory();
     const params = useParams<{ code: string }>();
@@ -28,7 +30,7 @@ const Login: FC = (): ReactElement => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        
+
         if (params.code) {
             dispatch(activateAccount(params.code));
         }
@@ -44,15 +46,15 @@ const Login: FC = (): ReactElement => {
 
     return (
         <ContentWrapper>
-            <ContentTitle icon={<LoginOutlined />} title={"SIGN IN"} />
-            <Row gutter={32}>
-                <Col span={12}>
+            <ContentTitle icon={<LoginOutlined />} title={t("signIn")} />
+            <Row gutter={[32, 32]}>
+                <Col xs={{ span: 24 }} sm={{ span: 12 }}>
                     <Form onFinish={onClickSignIn}>
                         <Divider />
                         {errorMessage && <Alert type="error" message={errorMessage} />}
                         {successMessage && <Alert type="success" message={successMessage} />}
                         <FormInput
-                            title={"E-mail:"}
+                            title={t('email') + ":"}
                             icon={<MailOutlined />}
                             titleSpan={6}
                             wrapperSpan={18}
@@ -60,7 +62,7 @@ const Login: FC = (): ReactElement => {
                             placeholder={"E-mail"}
                         />
                         <FormInput
-                            title={"Password:"}
+                            title={t('password') + ":"}
                             icon={<LockOutlined />}
                             titleSpan={6}
                             wrapperSpan={18}
@@ -69,12 +71,12 @@ const Login: FC = (): ReactElement => {
                             inputPassword
                         />
                         <Space align={"baseline"} size={13}>
-                            <IconButton title={"Sign in"} icon={<LoginOutlined />} />
-                            <Link to={FORGOT}>Forgot password?</Link>
+                            <IconButton title={t("signIn")} icon={<LoginOutlined />} />
+                            <Link to={FORGOT}>{t('forgetPassword')}</Link>
                         </Space>
                     </Form>
                 </Col>
-                <Col span={12}>
+                <Col xs={{ span: 24 }} sm={{ span: 12 }}>
                     <Space direction={"vertical"} className={"social-login-wrapper"}>
                         <SocialButton socialNetwork={"google"} image={googleLogo} />
                         <SocialButton socialNetwork={"facebook"} image={facebookLogo} />
